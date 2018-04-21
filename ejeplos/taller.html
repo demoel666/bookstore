@@ -22,8 +22,7 @@
                     <td>{{item.telefono}}</td>
                     <td>{{item.edad}}</td>
                     <td>{{item.condicion}}</td>
-                    <td v-if="item.edad && item.edad=>18">MAYOR DE EDAD</td>
-                    <td v-else="item.edad && item.edad=>18">MAYOR DE EDAD</td>
+                    <td v-if="item.edad && item.edad>=18">MAYOR DE EDAD</td>
                     
                 </tr>
             </tbody>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Ejemplo</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+</html><body>
+    <main>
+        <button @click="loaddata">CARGAR</button>
+        <ol v-if="posts">
+            <li v-for="(posts, idx) in posts">
+                {{posts.title}}
+            </li>
+        </ol>
+        <span v-eslse>ESPERANDO DATOS</span>
+        {{ $data }}
+    </main>
+</body>
+
+<script type="text/javascript">
+
+    new Vue({
+        el:'main',
+        data:{
+               posts:null
+        },
+        methods:{
+            loaddata(){
+                axios.get("https://jsonplaceholder.typicode.com/posts")
+                .then((respuesta)=>{
+                    this.posts=respuesta.data;
+                    this.open3();
+
+                });
+            },
+            open3(){
+                this.$notify({
+                    title: 'Sucess',
+                    message: 'Ths a success messahe',
+                    type:'success'
+                });
+            }
+        }
+    })
+
+</script>
