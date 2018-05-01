@@ -9,8 +9,10 @@
     		</v-btn>
 	</v-toolbar-title>
     <v-spacer></v-spacer>
+	<v-btn color="accent" to="/">{{$t('navigation.shop')}}</v-btn> <!-- Igual -->
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat to="/login">{{ $t('navigation.login') }}</v-btn>
+      <v-btn flat to="/about">{{$t('navigation.about')}}</v-btn> <!--Modificacion-->
+	  <v-btn flat to="/login">{{ $t('navigation.login') }}</v-btn>
       <v-btn flat to="/register">{{ $t('navigation.register') }}</v-btn>
     </v-toolbar-items>
   </v-toolbar>
