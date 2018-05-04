@@ -75,7 +75,7 @@
     },
     methods: {
 		  submit () {
-		    this.$emit('process', {email: this.email, password: this.password});// pasa la comunicacion donde fue llamdado 
+		    this.$emit('process', {email: this.email, password: this.password});
       }
     }
 	}

@@ -4,7 +4,6 @@ import Home from '@/components/Home'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import About from '@/components/About'
-
 Vue.use(Router)
 
 export default new Router({
@@ -13,19 +12,19 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta: {Auth: false, tittle:'Inicio'}
+      meta:{Auth:false, title:'Inicio'}
     },
-    {
+     {
       path: '/register',
-      name: 'Register',
+      name: 'register',
       component: Register,
-      meta: {Auth: false, tittle:'Inicio'}
+      meta:{Auth:false, title:'Register'}
     },
-    {
+     {
       path: '/login',
-      name: 'Login',
+      name: 'login',
       component: Login,
-      meta: {Auth: false, tittle:'Inicio'}
+      meta:{Auth:false, title:'Login'}
     },
     {
       path: '/about',
@@ -33,6 +32,5 @@ export default new Router({
       component: About,
       meta: {Auth: false, tittle: 'Inicio'}
     }
-   
   ]
 })
