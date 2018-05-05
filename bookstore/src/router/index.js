@@ -6,7 +6,15 @@ import Login from '@/components/Login'
 import About from '@/components/About'
 Vue.use(Router)
 
-export default new Router({
+import store from '@/store';
+const beforeEnter = (to, from, next) =>{
+  if (store.state.authModule.looged){
+    next({path:'/'});
+  }else{
+    next();
+  }
+};
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -34,3 +42,20 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) =>{
+  document.tittle = to.meta.tittle;
+  if (to.meta.Auth && !store.state.authModule.logged && store.state.logged){
+    next({path:'/login'});
+  }else{
+    if (to.meta.role){
+      if (store.state.loaded && (to.meta.role !== store.authModule.role)){
+        next({path:'/'});
+        return;
+      }
+    }
+    next();
+  }
+});
+
+export default router;
